@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>&#x1F69B;</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #0d131c;
+      touch-action: none;
+    }
+    #app {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      touch-action: none;
+    }
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+    }
+    #replay-btn {
+      position: fixed;
+      top: max(14px, env(safe-area-inset-top, 14px));
+      right: max(14px, env(safe-area-inset-right, 14px));
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 245, 225, 0.55);
+      background: rgba(18, 28, 42, 0.52);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.85);
+      transition: opacity 0.4s ease, transform 0.3s ease, background 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+      z-index: 10;
+    }
+    #replay-btn.visible {
+      opacity: 0.88;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+    #replay-btn:active {
+      transform: scale(0.92);
+      background: rgba(38, 58, 84, 0.78);
+    }
+    #replay-btn svg {
+      width: 26px;
+      height: 26px;
+      stroke: #fff5e4;
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+<script src="../../gf-playlog.js" defer></script>
+</head>
+<body>
+  <div id="app"></div>
+  <button id="replay-btn" aria-label="replay">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 12a9 9 0 1 0 3-6.7L3 8" />
+      <path d="M3 3v5h5" />
+    </svg>
+  </button>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
